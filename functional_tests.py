@@ -2,13 +2,13 @@ import unittest
 from selenium import webdriver
 
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTestCase(unittest.TestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(5)
 
-    def test_can_start_a_list_and_retrieve_it_later(self):
+    def testCan(self):
         #Effie has heard about a new cool online to-do app. She goes 
         #online to check out its homepage
         self.browser.get('http://localhost:8000')
@@ -40,8 +40,8 @@ class NewVisitorTest(unittest.TestCase):
         #Satisfied she goes back to sleep
 	
     def tearDown(self):
-        self.browser.qui()
+        self.browser.quit()
 
-    if __name__ == '__main__':
+if __name__ == '__main__':
         unittest.main()
 
