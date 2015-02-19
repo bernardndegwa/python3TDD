@@ -8,7 +8,7 @@ class NewVisitorTestCase(unittest.TestCase):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(5)
 
-    def testCan(self):
+    def test_can_starrt_a_list_and_retrieve_it_later(self):
         #Effie has heard about a new cool online to-do app. She goes 
         #online to check out its homepage
         self.browser.get('http://localhost:8000')
