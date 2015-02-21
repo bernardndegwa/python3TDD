@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.shortcuts import render
 from django.core.context_processors import request
 from django.http.response import HttpResponse
@@ -5,3 +6,15 @@ from django.http.response import HttpResponse
 # Create your views here.
 def home_page(request):
     return render(request, 'home.html')
+=======
+from django.shortcuts import redirect, render
+from lists.models import Item
+#merged with harry's on a branch called merging
+def home_page(request):
+    if request.method == 'POST':
+        Item.objects.create(text=request.POST['item_text'])
+        return redirect('/')
+
+    items = Item.objects.all()
+    return render(request, 'home.html', {'items': items})
+>>>>>>> merging
