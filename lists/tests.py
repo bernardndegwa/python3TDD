@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-from django.test import TestCase
-from django.core.urlresolvers import resolve
-from django.http import HttpRequest
-
-from lists.views import home_page
-
-
-# Create your tests here.
-class HomePageTest(TestCase):
-        
-    def test_root_url_resolves_to_home_page_view(self):
-        found = resolve('/')
-        self.assertEqual(found.func, home_page)
-        
-=======
 from django.core.urlresolvers import resolve
 from django.http import HttpRequest
 from django.template.loader import render_to_string
@@ -29,17 +13,12 @@ class HomePageTest(TestCase):
         self.assertEqual(found.func, home_page)
 
 
->>>>>>> merging
+
     def test_home_page_returns_correct_html(self):
         request = HttpRequest()
         response = home_page(request)
         expected_html = render_to_string('home.html')
-<<<<<<< HEAD
-        self.assertEqual(response.content.decode('home.html'))
         self.assertEqual(response.content.decode(), expected_html)
-=======
-        self.assertEqual(response.content.decode(), expected_html)
-
 
     def test_home_page_displays_all_list_items(self):
         Item.objects.create(text='itemey 1')
@@ -101,4 +80,3 @@ class ItemModelTest(TestCase):
         self.assertEqual(first_saved_item.text, 'The first (ever) list item')
         self.assertEqual(second_saved_item.text, 'Item the second')
 
->>>>>>> merging
