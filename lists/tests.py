@@ -36,6 +36,7 @@ class HomePageTest(TestCase):
         request.method = 'POST'
         request.POST['item_text'] = 'A new list item'
 
+
         response = home_page(request)
 
         self.assertEqual(Item.objects.count(), 1)
@@ -79,4 +80,5 @@ class ItemModelTest(TestCase):
         second_saved_item = saved_items[1]
         self.assertEqual(first_saved_item.text, 'The first (ever) list item')
         self.assertEqual(second_saved_item.text, 'Item the second')
+
 
